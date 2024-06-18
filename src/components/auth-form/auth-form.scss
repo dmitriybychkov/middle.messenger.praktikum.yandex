@@ -1,0 +1,12 @@
+@import '../../static/styles/mixins';
+
+.auth-form {
+  width: 340px;
+  margin-block: 10%;
+  margin-inline: auto;
+  border: 1px #ccc solid;
+  border-radius: 12px;
+  box-shadow: 0 0 6px 0 #00000024;
+  padding: 30px;
+  @include flex($flex-direction: column);
+}

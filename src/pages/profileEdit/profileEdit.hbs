@@ -1,0 +1,13 @@
+<div class="profile">
+    {{> ButtonReturn path='/profile'}}
+    <form class="profile-field">
+        {{> Avatar class='avatar-edit' image='../../static/images/photo.svg'}}
+        {{> Input placeholder='Имя' type='text' name='first_name' full=true}}
+        {{> Input placeholder='Фамилия' type='text' name='second_name' full=true}}
+        {{> Input placeholder='Логин' type='text' name='login' full=true}}
+        {{> Input placeholder='Почта' type='text' name='email' full=true}}
+        {{> Input placeholder='Пароль' type='password' name='password' full=true}}
+        {{> Input placeholder='Телефон' type='tel' name='phone' full=true}}
+        {{> Button text='Сохранить' type='submit' class='button profile-edit-button'}}
+    </form>
+</div>

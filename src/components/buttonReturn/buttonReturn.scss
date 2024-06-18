@@ -1,0 +1,22 @@
+.buttonReturn {
+  position: relative;
+  width: 64px;
+  height: 100vh;
+  border-right: 1px solid rgb(234, 234, 234);
+  background-color: rgb(251, 251, 251);
+  &-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #3369F3;
+    border-radius: 100%;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../static/images/arrow.svg');
+    border: none;
+  }
+}
