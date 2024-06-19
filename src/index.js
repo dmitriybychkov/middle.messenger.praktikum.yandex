@@ -13,6 +13,7 @@ const pages = {
     chatList: [Pages.ChatList]
 };
 
+
 for (let key in Components) {
     Handlebars.registerPartial(key, Components[key]);
 }
@@ -36,10 +37,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         '/profile-edit': () => nav('profileEdit'),
         '/password-edit': () => nav('passwordEdit'),
         '/chat-list': () => nav ('chatList')
-    }
+    };
 
     if (paths[path]) {
-        return paths[path]()
+        return paths[path]();
     }
     nav('error404');
 });

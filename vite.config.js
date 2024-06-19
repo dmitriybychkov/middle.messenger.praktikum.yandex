@@ -7,5 +7,8 @@ export default defineConfig({
     build: {
         outDir: resolve(__dirname, './dist'),
     },
+    server: {
+        port: 3000,
+    },
     plugins: [handlebars()],
 })

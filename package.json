@@ -4,9 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "NODE_ENV=development vite",
     "build": "vite build",
-    "start": "npm run build && node server.js",
+    "start": "npm run build && node server.js NODE_ENV=production",
+    "lint": "eslint .",
+
     "preview": "vite preview"
   },
   "devDependencies": {
