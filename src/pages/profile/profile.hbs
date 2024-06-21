@@ -3,12 +3,12 @@
     <form class="profile-field">
         {{> Avatar }}
         {{> Typography tag='span' text='User' class='typography-profile'}}
-        {{> Input placeholder='Имя' type='text' name='first_name' full=true}}
-        {{> Input placeholder='Фамилия' type='text' name='second_name' full=true}}
-        {{> Input placeholder='Логин' type='text' name='login' full=true}}
-        {{> Input placeholder='Почта' type='text' name='email' full=true}}
-        {{> Input placeholder='Пароль' type='password' name='password' full=true}}
-        {{> Input placeholder='Телефон' type='tel' name='phone' full=true}}
+        {{> Input placeholder='Имя' type='text' name='first_name' full=true id='profile-first-name'}}
+        {{> Input placeholder='Фамилия' type='text' name='second_name' full=true id='profile-second-name'}}
+        {{> Input placeholder='Логин' type='text' name='login' full=true id='profile-login'}}
+        {{> Input placeholder='Почта' type='text' name='email' full=true id='profile-mail'}}
+        {{> Input placeholder='Пароль' type='password' name='password' full=true id='profile-password'}}
+        {{> Input placeholder='Телефон' type='tel' name='phone' full=true id='profile-phone'}}
         <div class="profile-links">
             {{> Link class='link-profile' href='/profile-edit' text='Изменить данные'}}
             {{> Link class='link-profile' href='/password-edit' text='Изменить пароль'}}

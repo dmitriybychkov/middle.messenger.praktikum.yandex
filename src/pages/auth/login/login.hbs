@@ -1,5 +1,5 @@
-{{#> AuthForm label='Вход' link-class='login-link' link-href='/registration' link-text='Нет аккаунта?'  }}
-    {{> Input placeholder='Логин' type='text' name='login'}}
-    {{> Input placeholder='Пароль' type='password' name='password'}}
+{{#> AuthForm label='Вход' link-class='login-link' typography-class='typography-title' link-href='/registration' link-text='Нет аккаунта?'  }}
+    {{> Input placeholder='Логин' type='text' name='login' id='auth-login'}}
+    {{> Input placeholder='Пароль' type='password' name='password' id='auth-password'}}
     {{> Button text='Войти' type='submit' class='login-button'}}
 {{/AuthForm }}
