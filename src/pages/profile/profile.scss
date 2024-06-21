@@ -1,0 +1,14 @@
+@import '../../static/styles/mixins';
+
+.profile {
+  display: flex;
+  &-field {
+    @include flex($flex-direction: column);
+    width: 510px;
+    margin: 0 auto;
+  }
+  &-links {
+    @include flex($flex-direction: column, $align-items: inherit);
+    margin-top: 60px;
+  }
+}

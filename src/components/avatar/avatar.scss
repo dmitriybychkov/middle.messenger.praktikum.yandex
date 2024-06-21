@@ -1,0 +1,16 @@
+@import '../../static/styles/mixins';
+
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgb(239, 239, 239);
+  cursor: pointer;
+  overflow: hidden;
+  @include flex($justify-content: center);
+  &-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
