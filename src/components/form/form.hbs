@@ -1,0 +1,6 @@
+<form class={{#if class}}{{class}}{{else}}"auth-form"{{/if}}>
+    {{#if label}}
+        {{> Typography tag='span' text=label class=typography-class }}
+    {{/if}}
+    {{children}}
+</form>

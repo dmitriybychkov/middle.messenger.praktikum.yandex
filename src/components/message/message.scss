@@ -1,0 +1,50 @@
+.message {
+    text-align: left;
+    max-width: 402px;
+    background: #F8F8F8;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 0 12px 12px;
+    position: relative;
+
+    &__text {
+        font-size: 12px;
+        color: #1E1E1E;
+    }
+
+    &__time {
+        font-size: 9px;
+        color: #999;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    &-wrapper {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.my-message {
+    text-align: left;
+    max-width: 402px;
+    background: #E4EDFD;
+    padding: 12px 60px 12px 12px;
+    margin-bottom: 10px;
+    border-radius: 12px 12px 0;
+    position: relative;
+
+    &__text {
+        font-size: 12px;
+        color: #1E1E1E;
+    }
+
+    &__time {
+        font-size: 9px;
+        color: #3369F3;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+}

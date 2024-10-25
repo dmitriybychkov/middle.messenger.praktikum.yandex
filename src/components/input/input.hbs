@@ -1,11 +1,9 @@
-<div class="input-container">
-    <label class="input-label" for="{{id}}">
-        {{placeholder}}
-    </label>
-    <input
-            id="{{id}}"
-            placeholder="{{placeholder}}"
-            class="input {{class}} {{#if full}} input-full {{/if}}"
-            type="{{type}}"
-    />
-</div>
+<input
+        id="{{id}}"
+        placeholder="{{placeholder}}"
+        class="{{#if className}} {{className}} {{else}} input {{/if}} {{#if full}} input-full {{/if}}"
+        type="{{type}}"
+        ref="input"
+        {{#if value}}value={{value}}{{/if}}
+        name={{name}}
+></input>

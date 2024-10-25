@@ -1,0 +1,39 @@
+.form-field {
+    &_label {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        position: relative;
+
+        &__profile {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+    }
+
+    &_label-text {
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.2;
+
+        &__profile {
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.2;
+            position: absolute;
+        }
+    }
+
+    &_input-error {
+        text-align: center;
+        width: 100%;
+        height: 24px;
+        font-size: 10px;
+        line-height: 9px;
+        margin-bottom: 4px;
+    }
+}

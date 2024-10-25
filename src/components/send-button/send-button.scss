@@ -1,0 +1,11 @@
+.send-button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #3369F3;
+    border-radius: 100%;
+    min-width: 28px;
+    height: 28px;
+    background-image: url('../../static/images/arrow.svg');
+    border: none;
+    transform: rotate(180deg);
+}
