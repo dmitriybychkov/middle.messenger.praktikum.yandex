@@ -1,8 +1,5 @@
 {
   "name": "messenger",
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -38,5 +35,8 @@
     "nanoid": "^4.0.2",
     "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-static-copy": "^0.17.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
