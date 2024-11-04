@@ -2,13 +2,72 @@
 
 .profile {
   display: flex;
+
   &-field {
     @include flex($flex-direction: column);
-    width: 510px;
+
+    width: 280px;
     margin: 0 auto;
   }
+
   &-links {
     @include flex($flex-direction: column, $align-items: inherit);
+
     margin-top: 60px;
+  }
+}
+
+.avatar-change {
+  cursor: pointer;
+
+  &-description {
+    color: #FFF;
+    font-size: 13px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+  }
+
+  &:hover {
+    filter: brightness(75%);
+  }
+
+  &:hover + .avatar-change-description {
+    display: block;
+  }
+}
+
+.avatar-field {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.popup {
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  &__form {
+    padding: 40px 30px;
+    background: #FFF;
+    border-radius: 12px;
+  }
+
+  &__text {
+    display: block;
+    text-align: center;
+  }
+
+  &__input {
+    display: block;
+    margin: 40px auto;
+    width: 79%;
+    cursor: pointer;
   }
 }

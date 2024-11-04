@@ -1,0 +1,60 @@
+.chat-item {
+    padding: 12px 10px;
+    border-top: 1px solid #EAEAEA; 
+    display: flex;
+
+    &:hover {
+        background: #E4EDFD;
+        cursor: pointer;
+    }
+
+    &:last-child {
+        border-bottom: 1px solid #EAEAEA; 
+    }
+
+    &__field {
+        padding-left: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__additional-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__user-name {
+        font-size: 13px;
+    }
+
+    &__message {
+        font-size: 12px;
+        color: #999;
+    }
+
+    &__message-time {
+        font-size: 9px;
+        color: #999;
+    }
+
+    &__message-count {
+        font-size: 11px;
+        color: #FFF;
+        background-color: #3369F3;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

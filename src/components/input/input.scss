@@ -6,14 +6,17 @@
   border-bottom: 1px #3369f3 solid;
   margin: 16px 0;
   outline: none;
+
   &-full {
     width: 510px;
     font-size: 13px;
 
   }
+
   &-container {
     @include flex($flex-direction: column, $align-items: start);
   }
+
   &-label {
     font-size: 13px;
   }

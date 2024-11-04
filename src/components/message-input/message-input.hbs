@@ -1,0 +1,6 @@
+      {{#Form class="chat-footer" onSubmit=onSend}}
+      {{> File }}
+      {{{ Input className='message-input' type='text' name='message' id='message-input' ref='messageInput' value=value onBlur=onBlur onFocus=onFocus placeholder=placeholder}}}
+      {{{ ErrorMessage ref='errorMessage' error=error}}}
+      {{{ SendButton type='submit'}}}
+      {{/Form}}

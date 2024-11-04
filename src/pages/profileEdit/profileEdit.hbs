@@ -1,13 +1,13 @@
 <div class="profile">
     {{> ButtonReturn path='/profile'}}
-    <form class="profile-field">
-        {{> Avatar class='avatar-edit' image='../../static/images/photo.svg'}}
-        {{> Input placeholder='Имя' type='text' name='first_name' full=true id='edit-first-name'}}
-        {{> Input placeholder='Фамилия' type='text' name='second_name' full=true id='edit-second-name'}}
-        {{> Input placeholder='Логин' type='text' name='login' full=true id='edit-login'}}
-        {{> Input placeholder='Почта' type='text' name='email' full=true id='edit-mail'}}
-        {{> Input placeholder='Пароль' type='password' name='password' full=true id='edit-password'}}
-        {{> Input placeholder='Телефон' type='tel' name='phone' full=true id='edit-phone'}}
-        {{> Button text='Сохранить' type='submit' class='button profile-edit-button'}}
-    </form>
+    {{#Form class="profile-field" type='profile' onSubmit=onSaveChanges}}
+        {{> Avatar class='avatar-edit' image=avatar}}
+        {{{ FormField placeholder='Имя' type='text' name='first_name' ref='first_name' full=true id='edit-first-name'}}}
+        {{{ FormField placeholder='Фамилия' type='text' name='second_name' ref='second_name' full=true id='edit-second-name'}}}
+        {{{ FormField placeholder='Логин' type='text' name='login'ref='login' full=true id='edit-login'}}}
+        {{{ FormField placeholder='Почта' type='text' name='email' ref='email' full=true id='edit-mail'}}}
+        {{{ FormField placeholder='Пароль' type='password' name='password' ref='password' full=true id='edit-password'}}}
+        {{{ FormField placeholder='Телефон' type='tel' name='phone' ref='phone' full=true id='edit-phone'}}}
+        {{{ Button text='Сохранить' type='submit' class='button profile-edit-button'}}}
+    {{/Form}}
 </div>

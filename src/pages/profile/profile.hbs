@@ -1,14 +1,24 @@
 <div class="profile">
     {{> ButtonReturn path='/chat-list'}}
     <form class="profile-field">
-        {{> Avatar }}
-        {{> Typography tag='span' text='User' class='typography-profile'}}
-        {{> Input placeholder='Имя' type='text' name='first_name' full=true id='profile-first-name'}}
-        {{> Input placeholder='Фамилия' type='text' name='second_name' full=true id='profile-second-name'}}
-        {{> Input placeholder='Логин' type='text' name='login' full=true id='profile-login'}}
-        {{> Input placeholder='Почта' type='text' name='email' full=true id='profile-mail'}}
-        {{> Input placeholder='Пароль' type='password' name='password' full=true id='profile-password'}}
-        {{> Input placeholder='Телефон' type='tel' name='phone' full=true id='profile-phone'}}
+        <div class="avatar-field">
+            {{> Avatar class='avatar-change'}}
+            {{> Typography tag='span' text='Поменять аватар' class='avatar-change-description'}}
+            <div class="popup">
+                <div class="popup__form">
+                    {{> Typography tag='span' text='Загрузите файл' class='popup__text'}}
+                    <input type="file" class="popup__input">
+                    {{{ Button text='Поменять' type='submit' class='popup__button'}}}
+                </div>
+            </div>
+        </div>
+        {{{ Typography tag='span' text='User' class='typography-profile'}}}
+        {{{ Input placeholder='Имя' type='text' name='first_name' full=true id='profile-first-name'}}}
+        {{{ Input placeholder='Фамилия' type='text' name='second_name' full=true id='profile-second-name'}}}
+        {{{ Input placeholder='Логин' type='text' name='login' full=true id='profile-login'}}}
+        {{{ Input placeholder='Почта' type='text' name='email' full=true id='profile-mail'}}}
+        {{{ Input placeholder='Пароль' type='password' name='password' full=true id='profile-password'}}}
+        {{{ Input placeholder='Телефон' type='tel' name='phone' full=true id='profile-phone'}}}
         <div class="profile-links">
             {{> Link class='link-profile' href='/profile-edit' text='Изменить данные'}}
             {{> Link class='link-profile' href='/password-edit' text='Изменить пароль'}}

@@ -1,9 +1,10 @@
-{{#> AuthForm label='Регистрация' link-class='registration-link' typography-class='typography-title' link-href='/login' link-text='Войти'  }}
-    {{> Input placeholder='Имя' type='text' name='first_name' id='reg-first-name'}}
-    {{> Input placeholder='Фамилия' type='text' name='second_name' id='reg-last-name'}}
-    {{> Input placeholder='Логин' type='text' name='login' id='reg-login'}}
-    {{> Input placeholder='Почта' type='text' name='email' id='reg-mail'}}
-    {{> Input placeholder='Пароль' type='password' name='password' id='reg-password'}}
-    {{> Input placeholder='Телефон' type='tel' name='phone' id='reg-phone'}}
-    {{> Button text='Зарегистрироваться' type='submit' class='button registration-button'}}
-{{/AuthForm }}
+{{#Form label='Регистрация' typography-class='typography-title' onSubmit=onRegister}}
+    {{{ FormField placeholder='Имя' type='text' name='first_name' id='reg-first-name' ref='first_name'}}}
+    {{{ FormField placeholder='Фамилия' type='text' name='second_name' id='reg-last-name' ref='second_name'}}}
+    {{{ FormField placeholder='Логин' type='text' name='login' id='reg-login' ref='login'}}}
+    {{{ FormField placeholder='Почта' type='text' name='email' id='reg-mail' ref='email'}}}
+    {{{ FormField placeholder='Пароль' type='password' name='password' id='reg-password' ref='password'}}}
+    {{{ FormField placeholder='Телефон' type='tel' name='phone' id='reg-phone' ref='phone'}}}
+    {{{ Button text='Зарегистрироваться' type='submit' class='button registration-button'}}}
+    {{> Link class='registration-link' href='/login' text='Войти' }}
+{{/Form }}
