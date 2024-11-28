@@ -1,6 +1,9 @@
 import Handlebars from 'handlebars';
 import registerComponent from './services/registerComponent';
 import Block from './services/block';
+import Router from './services/Router/router';
+import routes from './services/routes';
+
 import Input from './components/input/index';
 import Button from './components/button/index';
 import ButtonReturn from './components/buttonReturn/index';
@@ -16,19 +19,17 @@ import File from './components/file/index';
 import MessageInput from './components/message-input/index';
 import SendButton from './components/send-button/index';
 import ErrorMessage from './components/error-message/index';
+
 import LogIn from './pages/auth/login/index';
-import Profile from './pages/profile/index';
-import ProfileEdit from './pages/profileEdit/index';
-import PassEdit from './pages/passwordEdit/index';
+import { Profile } from './pages/profile/index';
+import { ProfileEdit } from './pages/profileEdit/index';
+import { PassEdit } from './pages/passwordEdit/index';
 import Registration from './pages/auth/registration/index';
 import Error404 from './pages/errors/error404/index';
 import Error500 from './pages/errors/error500/index';
 import Chat from './pages/chat/index';
 
 Handlebars.registerPartial('Typography', Typography);
-Handlebars.registerPartial('Link', Link);
-Handlebars.registerPartial('ButtonReturn', ButtonReturn);
-Handlebars.registerPartial('Avatar', Avatar);
 Handlebars.registerPartial('ChatItem', ChatItem);
 Handlebars.registerPartial('Message', Message);
 Handlebars.registerPartial('File', File);
@@ -41,23 +42,24 @@ registerComponent('Search', Search as typeof Block);
 registerComponent('MessageInput', MessageInput as typeof Block);
 registerComponent('SendButton', SendButton as typeof Block);
 registerComponent('ErrorMessage', ErrorMessage as typeof Block);
+registerComponent('Link', Link as typeof Block);
+registerComponent('ButtonReturn', ButtonReturn as typeof Block);
+registerComponent('Avatar', Avatar as typeof Block);
+
+const pages : StringIndexed = {
+  LogIn,
+  Chat,
+  Error404,
+  Error500,
+  Profile,
+  ProfileEdit,
+  PassEdit,
+  Registration
+};
 
 document.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('#app')!;
-  const getPage = () => {
-    switch (window.location.pathname) {
-      case '/login': return new LogIn({});
-      case '/profile': return new Profile({});
-      case '/profile-edit': return new ProfileEdit({});
-      case '/password-edit': return new PassEdit({});
-      case '/registration': return new Registration({});
-      case '/error500': return new Error500({});
-      case '/chat': return new Chat({});
-      default: return new Error404({});
-    }
-  };
-
-  const page: Block<{}> = getPage();
-  root.append(page.element as HTMLElement);
-  page.dispatchComponentDidMount();
+  Object.keys(pages).forEach((page) => {
+    Router.use(routes[page], pages[page]);
+  });
+  Router.start();
 });

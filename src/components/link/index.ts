@@ -1,5 +1,23 @@
 import './link.scss';
-import Handlebars from 'handlebars';
+import Block from '../../services/block';
 import template from './link.hbs?raw';
 
-export default Handlebars.compile(template);
+interface LinkProps {
+  type: string,
+  onClick?: () => void;
+}
+
+export default class Link extends Block<LinkProps|any> {
+constructor(props: LinkProps) {
+  super({
+    ...props,
+    events: {
+      click: props?.onClick,
+    },
+  });
+}
+
+render() {
+  return this.compile(template, this.props);
+}
+}

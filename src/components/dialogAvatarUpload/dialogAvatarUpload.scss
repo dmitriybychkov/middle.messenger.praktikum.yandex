@@ -1,0 +1,27 @@
+.popup {
+  //background: rgb(0 0 0 / 50%);
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 256px 50px #999, 0 0 6px #202124;
+  border-radius: 12px;
+
+  &__form {
+    padding: 40px 30px;
+    background: #FFF;
+    border-radius: 12px;
+  }
+
+  &__text {
+    display: block;
+    text-align: center;
+  }
+
+  &__input {
+    display: block;
+    margin: 40px auto;
+    width: 79%;
+    cursor: pointer;
+  }
+}

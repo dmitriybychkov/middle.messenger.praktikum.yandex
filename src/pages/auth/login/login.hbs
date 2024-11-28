@@ -1,6 +1,6 @@
 {{#Form label='Вход' typography-class='typography-title' onSubmit=onLogin}}
-    {{{FormField id='auth-login'  placeholder='Логин' label="Логин" ref="login" name="login" type="text"}}}
-    {{{FormField id='auth-password' placeholder='Пароль'  label="Пароль" ref="password" name="password" type="password"}}}
-    {{{ Button text='Войти' type='submit' class='login-button' onClick=onClick}}}
-    {{> Link class='login-link' href='/registration' text='Нет аккаунта?' }}
+    {{{ FormField id='auth-login'  placeholder='Логин' label="Логин" ref="login" name="login" type="text" }}}
+    {{{ FormField id='auth-password' placeholder='Пароль'  label="Пароль" ref="password" name="password" type="password" }}}
+    {{{ Button text='Войти' type='submit' class='login-button' onClick=onClick }}}
+    {{{ Link class='login-link' text='Нет аккаунта?' onClick=onLoginClick }}}
 {{/Form }}
