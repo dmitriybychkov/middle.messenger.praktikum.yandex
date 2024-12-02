@@ -12,7 +12,7 @@ export interface User extends StringIndexed {
 export interface Chat {
 id: number,
 title: string,
-avatar: string,
+avatar: string | null,
 unread_count: number,
 created_by: number,
 last_message: {
@@ -21,7 +21,7 @@ last_message: {
       first_name: string,
       second_name: string,
       display_name: string,
-      avatar: string,
+      avatar: string | null,
       email: string,
       login: string,
       phone: string

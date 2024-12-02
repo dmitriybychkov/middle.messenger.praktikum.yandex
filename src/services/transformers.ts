@@ -3,8 +3,6 @@ import { User, Chat, Message } from './interfacesAPI';
 
 const BASE_URL = 'https://ya-praktikum.tech/api/v2';
 
-const defaultAvatarSrc = 'assets/img/mocks/chad.png';
-const defaultChatAvatarSrc = 'assets/img/mocks/unicorn.jpeg';
 
 const createURL = (resource: string | null) => {
   if (!resource) {
@@ -52,7 +50,7 @@ export const transformUserFromApi = (data: User): User => ({
 });
 
 export const transformChatsFromApi = (data: Chat[]): Chat[] => data?.map((chat : Chat) => ({
-  avatar: createURL(chat.avatar) || defaultChatAvatarSrc,
+  avatar: createURL(chat.avatar),
   id: chat.id,
   title: chat.title,
   created_by: chat.created_by,
@@ -66,7 +64,7 @@ export const transformChatsFromApi = (data: Chat[]): Chat[] => data?.map((chat :
       first_name: chat.last_message?.user.first_name,
       second_name: chat.last_message?.user.second_name,
       display_name: chat.last_message?.user.display_name,
-      avatar: createURL(chat.last_message?.user.avatar) || defaultAvatarSrc,
+      avatar: createURL(chat.last_message?.user.avatar),
       phone: chat.last_message?.user.phone,
       email: chat.last_message?.user.email,
     },

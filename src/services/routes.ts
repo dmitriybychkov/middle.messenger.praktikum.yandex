@@ -1,6 +1,6 @@
 const routes : Record<string, string> = {
   LogIn: '/',
-  Chat: '/messenger',
+  Messenger: '/messenger',
   Registration: '/sign-up',
   Profile: '/profile',
   ProfileEdit: '/settings',

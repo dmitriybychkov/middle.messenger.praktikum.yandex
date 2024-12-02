@@ -1,0 +1,17 @@
+.chat-sidebar {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 100dvh;
+    border-right: 1px solid #EAEAEA;
+    background-color: white;
+
+    // с этим нормальная прокрутка и плитки при наведении
+    &__list-wrapper {
+        position: relative;
+        height: calc(100dvh - 88px);
+        overflow-y: scroll !important;
+        overflow-x: visible !important;
+    }
+}

@@ -1,0 +1,90 @@
+.chat-settings-bar {
+    display: flex;
+    flex-direction: row;
+    padding: auto 16px;
+    margin: 0 10px;
+    width: 100%;
+    max-width: 260px;
+    height: 48px;
+    justify-content: center;
+    background-color: white;
+    border-top: 1px solid #EAEAEA;
+    box-sizing: border-box;
+
+    &__profile-button {
+        border: none;
+        margin: auto 16px;
+        width: 28px;
+        height: 28px;
+        background-image: url("../../static/images/profile.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+    }
+
+    &__settings-button {
+        border: none;
+        margin: auto 16px;
+        width: 32px;
+        height: 32px;
+        background-image: url("../../static/images/settings.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+
+    }
+
+    &__favorites-button {
+        border: none;
+        margin: auto 12px;
+        width: 32px;
+        height: 32px;
+        background-image: url("../../static/images/favorite.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+    }
+
+    &__new-chat-button {
+        border: none;
+        margin: auto 12px;
+        width: 32px;
+        height: 32px;
+        background-image: url("../../static/images/add-chat.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+    }
+}

@@ -1,0 +1,98 @@
+.chat-message-bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 48px;
+    max-height: 48px;
+    background-color: white;
+    border-top: 1px solid #EAEAEA;
+    box-sizing: border-box;
+    position: relative;
+    margin: 0;
+    justify-content: center;
+    align-items: flex-end;
+
+    &__form {
+        display: flex;
+        height: 48px;
+        width: 100%;
+        margin: auto 0;
+        padding: 0;
+        gap: 2px;
+    }
+
+    &__input-error {
+        display: block;
+        position: absolute;
+        right: 50px;
+        top: 14px;
+        font-size: 12px;
+        color: red;
+    }
+
+    &__message {
+        margin: auto 0;
+        width: calc(100% - 40px);
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 30px;
+        padding: 6px 0 6px 12px;
+        box-sizing: border-box;
+        border: 1px solid #F8F8F8;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.21;
+        background-color: #F8F8F8;
+        color: black;
+    
+        &:focus {
+            background-color: white;
+            outline: auto;
+            outline-color: grey;
+        }
+    }
+
+    &__attach-button {
+        border: none;
+        margin: auto 2px;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background-image: url("../../static/images/icons/attach.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            opacity: 0.9;
+            transition: 0.25s;
+        }
+    }
+
+    &__send-button {
+        border: none;
+        margin: auto 2px;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background-image: url("../../static/images/arrow.svg");
+        rotate: 180deg;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+        background-color: #3369F3;
+        border-radius: 100%;
+        background-size: auto;
+
+        &:hover {
+            cursor: pointer;
+            scale: 1.05;
+            transition: 0.25s;
+        }
+
+    }
+}

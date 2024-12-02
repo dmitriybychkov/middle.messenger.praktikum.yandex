@@ -19,6 +19,29 @@ import File from './components/file/index';
 import MessageInput from './components/message-input/index';
 import SendButton from './components/send-button/index';
 import ErrorMessage from './components/error-message/index';
+import { ChatBox } from './components/ChatBox/ChatBox';
+import { ChatFeed } from './components/ChatFeed/ChatFeed';
+import { ChatHeader } from './components/ChatHeader/ChatHeader';
+import { ChatList } from './components/ChatList/ChatList';
+import { ChatMessage } from './components/ChatMessage/ChatMessage';
+import { ChatMessageBar } from './components/ChatMessageBar/ChatMessageBar';
+import { ChatSearchBar } from './components/ChatSearchBar/ChatSearchBar';
+import { ChatSettingsBar } from './components/ChatSettingsBar/ChatSettingsBar';
+import { ChatSideBar } from './components/ChatSideBar/ChatSideBar';
+import { ChatWindow } from './components/ChatWindow/ChatWindow';
+import { DialogCreateChat } from './components/DialogCreateChat/DialogCreateChat';
+import { DialogAddUser } from './components/DialogAddUser/DialogAddUser';
+import { DialogRemoveUser } from './components/DialogRemoveUser/DialogRemoveUser';
+import { DialogDeleteChat } from './components/DialogDeleteChat/DialogDeleteChat';
+import { DialogUploadMedia } from './components/DialogUploadMedia/DialogUploadMedia';
+import { ChatAvatar} from './components/ChatAvatar/ChatAvatar';
+import { ChatButton } from './components/ChatButton/ChatButton';
+import { ChatInput} from './components/ChatInput/ChatInput';
+import { ChatFormField } from './components/ChatFormField/ChatFormField';
+import { ApiErrorMessage } from './components/ApiErrorMessage/ApiErrorMessage';
+import { Dialog } from './components/Dialog/Dialog';
+import { FileInput } from './components/FileInput/FileInput';
+import { ChatForm } from './components/ChatForm/ChatForm';
 
 import LogIn from './pages/auth/login/index';
 import { Profile } from './pages/profile/index';
@@ -27,7 +50,7 @@ import { PassEdit } from './pages/passwordEdit/index';
 import Registration from './pages/auth/registration/index';
 import Error404 from './pages/errors/error404/index';
 import Error500 from './pages/errors/error500/index';
-import Chat from './pages/chat/index';
+import { Messenger } from './pages/Messenger/Messenger';
 
 Handlebars.registerPartial('Typography', Typography);
 Handlebars.registerPartial('ChatItem', ChatItem);
@@ -45,10 +68,33 @@ registerComponent('ErrorMessage', ErrorMessage as typeof Block);
 registerComponent('Link', Link as typeof Block);
 registerComponent('ButtonReturn', ButtonReturn as typeof Block);
 registerComponent('Avatar', Avatar as typeof Block);
+registerComponent('ChatSideBar', ChatSideBar as typeof Block);
+registerComponent('ChatWindow', ChatWindow as typeof Block);
+registerComponent('DialogCreateChat', DialogCreateChat as typeof Block);
+registerComponent('DialogAddUser', DialogAddUser as typeof Block);
+registerComponent('DialogRemoveUser', DialogRemoveUser as typeof Block);
+registerComponent('DialogDeleteChat', DialogDeleteChat as typeof Block);
+registerComponent('DialogUploadMedia', DialogUploadMedia as typeof Block);
+registerComponent('ChatBox', ChatBox as typeof Block);
+registerComponent('ChatFeed', ChatFeed as typeof Block);
+registerComponent('ChatHeader', ChatHeader as typeof Block);
+registerComponent('ChatList', ChatList as typeof Block);
+registerComponent('ChatMessage', ChatMessage as typeof Block);
+registerComponent('ChatMessageBar', ChatMessageBar as typeof Block);
+registerComponent('ChatSearchBar', ChatSearchBar as typeof Block);
+registerComponent('ChatSettingsBar', ChatSettingsBar as typeof Block);
+registerComponent('ChatButton', ChatButton as typeof Block);
+registerComponent('ChatAvatar', ChatAvatar as typeof Block);
+registerComponent('ChatInput', ChatInput as typeof Block);
+registerComponent('ChatFormField', ChatFormField as typeof Block);
+registerComponent('ApiErrorMessage', ApiErrorMessage as typeof Block);
+registerComponent('Dialog', Dialog as typeof Block);
+registerComponent('FileInput', FileInput as typeof Block);
+registerComponent('ChatForm', ChatForm as typeof Block);
 
 const pages : StringIndexed = {
   LogIn,
-  Chat,
+  Messenger,
   Error404,
   Error500,
   Profile,

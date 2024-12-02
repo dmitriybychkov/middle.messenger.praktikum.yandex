@@ -30,7 +30,7 @@ export class ProfilePage extends Block<ProfileProps> {
     
       onReturnClick: (e: any) => {
         e.preventDefault();
-        router.go(routes.Chat);
+        router.go(routes.Messenger);
       },
 
       onLogoutClick: (e: any) => {
