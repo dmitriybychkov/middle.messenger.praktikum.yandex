@@ -5,7 +5,6 @@ import router from '../../services/Router/router';
 import routes from '../../services/routes';
 import { withStore } from '../../services/withStore';
 import UserController from '../../services/UserController';
-import AuthController from '../../services/AuthController';
 import { User } from '../../services/interfacesAPI';
 import store from '../../services/Store';
 

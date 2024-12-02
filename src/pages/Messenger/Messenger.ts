@@ -41,7 +41,6 @@ class MessengerBase extends Block<MessengerProps> {
         ChatsController.delete(chatId);
       },
     });
-    console.log('here');
     ChatsController.getChats().catch((error) => store.set('error', error));
     AuthController.getUser();
   }
