@@ -6,6 +6,8 @@ import router from '../../services/Router/router';
 import AuthController from '../../services/AuthController';
 import { withStore } from '../../services/withStore';
 import { User } from '../../services/interfacesAPI';
+import store from '../../services/Store';
+import UserController from '../../services/UserController';
 
 interface ProfileProps extends User {
   isEditable: boolean,
@@ -13,6 +15,8 @@ interface ProfileProps extends User {
   onPassEditClick : (event : Event) => void,
   onReturnClick : (event : Event) => void,
   onLogoutClick: (event : Event) => void,
+  onChangeAvatar : (event: Event) => void,
+  onUploadAvatar : (event: Event) => void,
 }
 export class ProfilePage extends Block<ProfileProps> {
   constructor(props: ProfileProps) {
@@ -36,8 +40,27 @@ export class ProfilePage extends Block<ProfileProps> {
       onLogoutClick: (e: any) => {
         e.preventDefault();
         AuthController.logout();
-      }
+      },
+      onChangeAvatar: (event: Event) => {
+        event.preventDefault();
+        store.set('isOpenDialogUpload', true);
+      },
+      onUploadAvatar: (event: Event) => {
+        event.preventDefault();
+        const { file } = store.getState();
+        const data = new FormData();
+        data.append('avatar', file);
+        UserController.updateAvatar(data)
+          .catch((error) => store.set('error', error))
+          .finally(() => {
+            if (!store.getState().error) {
+              store.set('isOpenDialogUpload', false);
+              AuthController.getUser();
+            }
+          });
+      },
     });
+    AuthController.getUser()
   }
 
   protected render(): DocumentFragment {

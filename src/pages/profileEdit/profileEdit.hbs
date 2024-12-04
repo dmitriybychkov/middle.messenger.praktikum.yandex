@@ -1,7 +1,7 @@
 <div class="profile">
     {{{ ButtonReturn onClick=onReturnClick }}}
     {{#Form class="profile-field" type='profile' onSubmit=onSaveChanges}}
-        {{{ Avatar class='avatar-edit' image=avatar }}}
+        {{{ Avatar class='avatar-edit' src=user.avatar }}}
         {{{ FormField placeholder='Имя' type='text' name='first_name' ref='first_name' full=true id='edit-first-name' value=user.first_name }}}
         {{{ FormField placeholder='Фамилия' type='text' name='second_name' ref='second_name' full=true id='edit-second-name' value=user.second_name }}}
         {{{ FormField placeholder='Логин' type='text' name='login'ref='login' full=true id='edit-login' value=user.login }}}

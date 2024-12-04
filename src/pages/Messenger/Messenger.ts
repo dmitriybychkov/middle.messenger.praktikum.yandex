@@ -33,6 +33,8 @@ class MessengerBase extends Block<MessengerProps> {
       onCreateChat: (event: Event) => {
         event.preventDefault();
         const title = this.refs.createChatDialog.getChatTitle();
+        console.log(this.refs)
+        console.log(title);
         ChatsController.create(title!);
       },
       onDeleteChat: (event: Event) => {

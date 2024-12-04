@@ -2,7 +2,8 @@
     {{{ ButtonReturn onClick=onReturnClick }}}
     <form class="profile-field">
         <div class="avatar-field">
-            {{{ Avatar class='avatar-change' }}}
+            {{!-- {{{ Avatar class='avatar-change' }}} --}}
+            {{{ Avatar class='avatar-change' src=user.avatar onClick=onChangeAvatar}}}
             {{> Typography tag='span' text='Поменять аватар' class='avatar-change-description'}}
         </div>
         {{{ Typography tag='span' text='User' class='typography-profile' }}}
@@ -17,4 +18,5 @@
             {{{ Link class='link-exit' text='Выйти' onClick=onLogoutClick}}}
         </div>
     </form>
+    {{{DialogUploadMedia ref="dialogUploadAvatar" onSubmitMedia=onUploadAvatar }}}
 </div>

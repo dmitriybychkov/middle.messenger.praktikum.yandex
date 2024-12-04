@@ -36,6 +36,7 @@ class ProfileEditPage extends Block<ProfileEditProps> {
         router.go(routes.Profile);
       },
     });
+    AuthController.getUser();
   }
 
   protected render(): DocumentFragment {

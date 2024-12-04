@@ -54,6 +54,7 @@ class AuthController {
     } catch (error) {
       console.error(error);
       store.set('error', error);
+      router.go(routes.LogIn);
     }
   }
 
