@@ -2,7 +2,6 @@ import template from './DialogCreateChat.hbs?raw';
 import Block from '../../services/block';
 import store, { State } from '../../services/Store';
 import { withStore } from '../../services/withStore';
-import chatsController from '../../services/ChatsController';
 
 interface DialogCreateChatProps {
   isOpen: boolean,
@@ -28,7 +27,6 @@ export class DialogCreateChatBase extends Block<DialogCreateChatProps> {
   }
 
   public getChatTitle() {
-    console.log('asdasd', this.refs.chatTitle.value)
     return this.refs.chatTitle.value();
   }
 
