@@ -1,0 +1,12 @@
+<div class="chat-list">
+    <ul class="chat-list__wrapper">
+        {{#each chats}}
+        <li class="chat-list__item">
+            {{{ChatBox
+            chat=this
+            id=this.id
+            }}}
+        </li>
+        {{/each}}
+    </ul>
+</div>

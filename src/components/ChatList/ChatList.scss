@@ -1,0 +1,21 @@
+.chat-list {
+        margin: 0;
+        padding: 0;
+        height: calc(100dvh - 88px);
+        max-width: 320px;
+        overflow: visible scroll!important;
+
+        &__wrapper {
+                margin: 0;
+                padding: 0;
+                position: relative;
+                list-style: none;
+
+        }
+
+
+        &__item {
+                position: relative;
+                display: block;
+        }
+}

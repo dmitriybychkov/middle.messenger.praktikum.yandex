@@ -1,54 +1,72 @@
 interface RequestOptions {
-    method?: string;
-    data?: any;
-    headers?: { [key: string]: string };
-    timeout?: number;
-    retries?: number;
+  method?: string;
+  data?: any;
+  headers?: { [key: string]: string };
+  timeout?: number;
+  retries?: number;
 }
 
-// eslint-disable-next-line no-shadow
-const METHODS = {
-  GET: 'GET',
-  POST: 'POST',
-  PUT: 'PUT',
-  DELETE: 'DELETE',
-};
-
-function queryStringify(data: { [key: string]: unknown }): string {
-  let resultQueryParams: string = '';
-  let paramsList: Array<[string, unknown]> = [];
-
-  if (!data) {
-    return resultQueryParams;
+function queryStringify(data: StringIndexed = {}, parentKey: string = ''): string {
+  if (typeof data !== 'object' || data === null) {
+    throw new Error('input must be an object');
   }
-  paramsList = Object.entries(data);
-  resultQueryParams += '?';
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const param of paramsList) {
-    const [key, value] = param;
-    resultQueryParams += `${key}=${value!.toString()}`;
+  const params: string[] = [];
 
-    if (paramsList.indexOf(param) !== paramsList.length - 1) {
-      resultQueryParams += '&';
+  Object.keys(data).forEach((key) => {
+    const value = data[key];
+
+    const paramKey = parentKey ? `${parentKey}[${key}]` : key;
+
+    if (Array.isArray(value)) {
+      value.forEach((item: any, index: number) => {
+        params.push(`${paramKey}[${index}]=${encodeURIComponent(item)}`);
+      });
+    } else if (typeof value === 'object' && value !== null) {
+      const nestedParams = queryStringify(value, paramKey);
+      if (nestedParams !== '') {
+        params.push(nestedParams);
+      }
+    } else {
+      params.push(`${paramKey}=${value}`);
     }
-  }
+  });
 
-  return resultQueryParams;
+  return params.length > 0 ? `?${params.join('&')}` : '';
 }
 
-export class HTTPTransport {
-  get = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(`${url}${queryStringify(options.data)}`, { method: METHODS.GET });
+function onRequestError(xhr : XMLHttpRequest) {
+  return `Status: ${xhr.status}${xhr.response ? ', ' : '.'}${xhr.response?.reason || ''}`;
+}
 
-  post = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.POST });
+const BASE_URL = 'https://ya-praktikum.tech/api/v2';
 
-  put = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.PUT });
+type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
 
-  delete = (url: string, options: RequestOptions = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.DELETE });
+enum METHODS {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE'
+}
 
-  // eslint-disable-next-line class-methods-use-this
-  request = (url: string, options: RequestOptions): Promise<XMLHttpRequest> => {
-    const { method = 'GET', data, headers } = options;
+export default class HTTPTransport {
+  protected endpoint: string;
+
+  constructor(endpoint: string) {
+    this.endpoint = `${BASE_URL}${endpoint}`;
+  }
+
+  get : HTTPMethod = (path, options = {}) => this.request(`${this.endpoint + path}${queryStringify(options.data)}`, { method: METHODS.GET });
+
+  post : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.POST });
+
+  put : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.PUT });
+
+  delete : HTTPMethod = (path, options = {}) => this.request(this.endpoint + path, { ...options, method: METHODS.DELETE });
+
+  request = (url: string, options: RequestOptions) => {
+    const { method = 'GET', data, headers } = options as RequestOptions;
     console.warn('REQUEST', url, options);
 
     return new Promise<XMLHttpRequest>((resolve, reject) => {
@@ -57,42 +75,34 @@ export class HTTPTransport {
       xhr.open(method, url);
 
       if (headers) {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const [key, value] of Object.entries(headers)) {
-          xhr.setRequestHeader(key, value);
-        }
+        Object.entries(headers).forEach(([key, value]) => {
+          xhr.setRequestHeader(key, value as string);
+        });
       }
 
-      xhr.onload = function () {
-        resolve(xhr);
+      xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve(xhr.response);
+        } else {
+          reject(new Error(`Request failed with status ${xhr.status}, ${xhr.response?.reason || 'Unexpected error.'}`));
+        }
       };
 
-      xhr.onabort = reject;
-      xhr.onerror = reject;
-      xhr.ontimeout = reject;
+      xhr.onabort = () => reject(new Error(`Request aborted. ${onRequestError(xhr)}`));
+      xhr.onerror = () => reject(new Error(`Request error. ${onRequestError(xhr)}`));
+      xhr.ontimeout = () => reject(new Error(`Request timeout. ${onRequestError(xhr)}`));
+
+      xhr.withCredentials = true;
+      xhr.responseType = 'json';
 
       if (method === METHODS.GET || !data) {
         xhr.send();
-      } else {
+      } else if (data instanceof FormData) {
         xhr.send(data);
+      } else {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(data));
       }
     });
   };
-}
-
-export const xhrUtil = new HTTPTransport();
-
-export function fetchWithRetry(url : string, options : RequestOptions) : Promise<XMLHttpRequest> {
-  const { retries = 1 } = options;
-
-  function handleError(error: Error) {
-    const triesLeft = retries - 1;
-    if (!triesLeft) {
-      throw error;
-    }
-
-    return fetchWithRetry(url, { ...options, retries: triesLeft });
-  }
-
-  return xhrUtil.request(url, options).catch(handleError);
 }

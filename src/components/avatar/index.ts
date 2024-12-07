@@ -1,5 +1,26 @@
 import './avatar.scss';
-import Handlebars from 'handlebars';
+import Block from '../../services/block';
 import template from './avatar.hbs?raw';
 
-export default Handlebars.compile(template);
+interface AvatarProps extends StringIndexed {
+  isOwn: boolean,
+  onClick: (event: Event) => void,
+  events?: {
+    click?: (event: Event) => void,
+  }
+}
+
+export default class Avatar extends Block<AvatarProps> {
+constructor(props: AvatarProps) {
+  super({
+    ...props,
+    events: {
+      click: props?.onClick,
+    },
+  });
+}
+
+render() {
+  return this.compile(template, this.props);
+}
+}

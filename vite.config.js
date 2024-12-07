@@ -2,6 +2,7 @@ import handlebars from 'vite-plugin-handlebars';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import path from 'path';
 
 export default defineConfig({
   base: '',
@@ -16,6 +17,11 @@ export default defineConfig({
         silenceDeprecations: ['legacy-js-api'],
       }
     }
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
   server: {
     port: 3000,

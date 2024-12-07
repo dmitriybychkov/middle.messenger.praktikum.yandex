@@ -1,5 +1,23 @@
 import './buttonReturn.scss';
-import Handlebars from 'handlebars';
+import Block from '../../services/block';
 import template from './buttonReturn.hbs?raw';
 
-export default Handlebars.compile(template);
+interface ButtonReturnProps {
+  type: string,
+  onClick?: () => void;
+}
+
+export default class ButtonReturn extends Block<ButtonReturnProps|any> {
+  constructor(props: ButtonReturnProps) {
+    super({
+      ...props,
+      events: {
+        click: props?.onClick,
+      },
+    });
+  }
+
+  render() {
+    return this.compile(template, this.props);
+  }
+}

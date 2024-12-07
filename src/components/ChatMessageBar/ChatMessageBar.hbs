@@ -1,0 +1,8 @@
+<div class='chat-message-bar'>
+    {{!-- {{{Button className='chat-message-bar__attach-button' type='button' onClick=onAttachImage}}} --}}
+    {{#ChatForm customStyle='chat-message-bar__form' onSubmit=onSend}}
+        {{{ChatInput className='chat-message-bar__message' type='text' ref='messageInput' name='message' autocomplete='off' value=value onBlur=onBlur onFocus=onFocus placeholder=placeholder isActive='true'}}}
+        {{{ErrorMessage className='chat-message-bar__input-error' ref='errorMessage' error=error}}}
+        {{{ChatButton className='chat-message-bar__send-button' type='submit'}}}
+    {{/ChatForm}}
+</div>

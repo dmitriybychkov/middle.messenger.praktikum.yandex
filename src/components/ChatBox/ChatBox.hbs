@@ -1,0 +1,27 @@
+<button class="chatbox {{#if isActive}}chatbox_active{{/if}}">
+    {{{ChatAvatar size="normal" src=chat.avatar alt="Chat avatar picture"}}}
+    <div class="chatbox__text">
+        <div class="chatbox__text_header{{#if isActive}}_active{{/if}}">
+            {{chat.title}}
+        </div>
+        <div class="chatbox__text_content">
+            {{#if chat.last_message.content}}
+            <strong class="chatbox__last-message_author">
+                {{{ChatAvatar size="xxsmall" src=chat.last_message.user.avatar}}}
+                {{chat.last_message.user.display_name}}:
+            </strong>
+            {{chat.last_message.content}}
+            {{/if}}
+        </div>
+    </div>
+    <div class="chatbox__info">
+        <div class="chatbox__info_time">
+            {{chat.last_message.time}}
+        </div>
+        {{#if unread_count}}
+        <div class="chatbox__info_unread">
+            {{chat.unread_count}}
+        </div>
+        {{/if}}
+    </div>
+</button>

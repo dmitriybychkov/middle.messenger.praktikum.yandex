@@ -1,13 +1,12 @@
 <div class="profile">
-    {{> ButtonReturn path='/profile'}}
+    {{{ ButtonReturn onClick=onReturnClick }}}
     {{#Form class="profile-field" type='profile' onSubmit=onSaveChanges}}
-        {{> Avatar class='avatar-edit' image=avatar}}
-        {{{ FormField placeholder='Имя' type='text' name='first_name' ref='first_name' full=true id='edit-first-name'}}}
-        {{{ FormField placeholder='Фамилия' type='text' name='second_name' ref='second_name' full=true id='edit-second-name'}}}
-        {{{ FormField placeholder='Логин' type='text' name='login'ref='login' full=true id='edit-login'}}}
-        {{{ FormField placeholder='Почта' type='text' name='email' ref='email' full=true id='edit-mail'}}}
-        {{{ FormField placeholder='Пароль' type='password' name='password' ref='password' full=true id='edit-password'}}}
-        {{{ FormField placeholder='Телефон' type='tel' name='phone' ref='phone' full=true id='edit-phone'}}}
+        {{{ Avatar class='avatar-edit' src=user.avatar }}}
+        {{{ FormField placeholder='Имя' type='text' name='first_name' ref='first_name' full=true id='edit-first-name' value=user.first_name }}}
+        {{{ FormField placeholder='Фамилия' type='text' name='second_name' ref='second_name' full=true id='edit-second-name' value=user.second_name }}}
+        {{{ FormField placeholder='Логин' type='text' name='login'ref='login' full=true id='edit-login' value=user.login }}}
+        {{{ FormField placeholder='Почта' type='text' name='email' ref='email' full=true id='edit-mail' value=user.email }}}
+        {{{ FormField placeholder='Телефон' type='tel' name='phone' ref='phone' full=true id='edit-phone' value=user.phone }}}
         {{{ Button text='Сохранить' type='submit' class='button profile-edit-button'}}}
     {{/Form}}
 </div>

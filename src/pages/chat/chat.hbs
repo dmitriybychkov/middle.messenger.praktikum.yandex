@@ -1,14 +1,14 @@
 <div class="chat-wrap">
   <div class="chat-list">
-    <div class="chat-list__link">{{> Link href='/profile' text='Профиль >' class='chat-list__link_grey'}}</div>
+    <div class="chat-list__link">{{{ Link text='Профиль >' class='chat-list__link_grey' onClick=onChatClick}}}</div>
     {{{ Search placeholder='Поиск' type='text' name='search' id='search' class='chat-list__search'}}}
     {{> ChatItem }}
   </div>
   <div class="chat">
     <div class="chat-header">
       <div class="chat-header__user-info">
-        {{> Avatar class='avatar-chat' image='photo.svg'}}
-        {{> Typography tag='span' text='User' class='chat-header__user-name'}}
+        {{{ Avatar class='avatar-chat' image='photo.svg' }}}
+        {{{ Typography tag='span' text='User' class='chat-header__user-name' }}}
       </div>
       <div class="chat-header__menu-wrap">
         <div class="chat-header__menu"></div>
