@@ -26,7 +26,7 @@ export default class PassEditPage extends Block<PassEditProps> {
           newPassword
         } as const;
         UserController.updatePassword(passwords)
-          .catch((error) => store.set('error', error))
+          .catch((error: Error) => store.set('error', error))
           .finally(() => {
             if (!store.getState().error) {
               store.set('isOpenDialogPassword', false);

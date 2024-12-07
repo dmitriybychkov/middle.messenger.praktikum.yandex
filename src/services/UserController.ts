@@ -11,7 +11,7 @@ class UserController {
 
   public updateProfile = (data: User) => this.api.updateProfile(data);
 
-  public updateAvatar = (data: FormData) => this.api.updateAvatar(data).catch((error) => Store.set('error', error));
+  public updateAvatar = (data: FormData) => this.api.updateAvatar(data).catch((error: Error) => Store.set('error', error));
 
   public updatePassword = (data: ChangePasswordRequestData) => this.api.updatePassword(data);
 }

@@ -15,7 +15,7 @@ class ChatsController {
     let newChatId : Nullable<number> = null;
     await this.api.create(title)
       .then((res) => { newChatId = (res as unknown as Chat).id; })
-      .catch((error) => store.set('error', error))
+      .catch((error: Error) => store.set('error', error))
       .finally(() => {
         if (!store.getState().error) {
           store.set('isOpenDialogChat', false);
