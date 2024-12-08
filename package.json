@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "start": "npm run build && npx tsx server.ts",
     "lint": "npx eslint '**/*.{js,ts}' --fix && npx stylelint '**/*.scss' && npx tsc --noEmit",
-    "test": "./node_modules/.bin/mocha",
+    "test": "mocha",
     "prepare": "husky install"
   },
   "devDependencies": {

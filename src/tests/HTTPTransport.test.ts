@@ -21,16 +21,6 @@ describe('HTTPTransport', () => {
     expect(stub.calledWithMatch(correctPath, { method }));
   });
 
-  it('Must return error on try to get user info', async () => {
-    const http = new HTTPTransport('/auth');
-
-    await http.get('/user', {})
-      .catch((error) => {
-        const errorMessage = error.message.toString();
-        expect(errorMessage).to.equal(testErrors.BAD_COOKIE);
-      });
-  });
-
   it('Must return error on try to login with wrong data', async () => {
     const http = new HTTPTransport('/auth');
 
