@@ -1,13 +1,12 @@
 {
   "include": [
-    "src/**/*.ts"
-  ],
-  "module": "ESNext",
+    "src"
+, "src/types/.d.ts"  ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "node_modules"
   ],
   "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/types/global.d.ts"], 
     "outDir": "dist",
     "declaration": true,
     "target": "ESNext",
@@ -17,8 +16,9 @@
       "ESNext",
       "DOM"
     ],
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "strict": true,
+    "strictPropertyInitialization": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -30,5 +30,10 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "strictNullChecks": true
+  },
+  "ts-node" : {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
   }
 }

@@ -51,7 +51,7 @@ export class ProfilePage extends Block<ProfileProps> {
         const data = new FormData();
         data.append('avatar', file);
         UserController.updateAvatar(data)
-          .catch((error) => store.set('error', error))
+          .catch((error: Error) => store.set('error', error))
           .finally(() => {
             if (!store.getState().error) {
               store.set('isOpenDialogUpload', false);

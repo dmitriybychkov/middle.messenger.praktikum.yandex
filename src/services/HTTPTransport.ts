@@ -43,14 +43,14 @@ const BASE_URL = 'https://ya-praktikum.tech/api/v2';
 
 type HTTPMethod = (path: string, options?: RequestOptions) => Promise<XMLHttpRequest>
 
-enum METHODS {
+export enum METHODS {
     GET = 'GET',
     POST = 'POST',
     PUT = 'PUT',
     DELETE = 'DELETE'
 }
 
-export default class HTTPTransport {
+export class HTTPTransport {
   protected endpoint: string;
 
   constructor(endpoint: string) {
